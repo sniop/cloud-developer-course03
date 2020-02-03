@@ -3,16 +3,18 @@ kind: Deployment
 metadata:
   labels:
     service: reverseproxy
+    version: v2
   name: reverseproxy
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
         service: reverseproxy
+        version: v2
     spec:
       containers:
-      - image: scheele/reverseproxy
+      - image: abhishek55/reverseproxy
         name: reverseproxy
         imagePullPolicy: Always          
         resources:
