@@ -18,9 +18,8 @@ before_install:
 
 install:
   - docker-compose -f course-03/exercises/udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel 
-
-deploy:
-  - docker-compose -f course-03/exercises/udacity-c3-deployment/docker/docker-compose.yaml up
-
-  
+  - docker-compose -f course-03/exercises/udacity-c3-deployment/docker/docker-compose.yaml up -d
+  - echo " wait 30 seconds for containers to get started"
+  - curl -I 'http://localhost:8100'
+  - docker-compose -f course-03/exercises/udacity-c3-deployment/docker/docker-compose.yaml logs
 
